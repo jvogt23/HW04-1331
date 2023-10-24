@@ -10,14 +10,18 @@ public class Ghost extends TrickOrTreater {
         this.robberiesConducted = 0;
     }
 
+    public Ghost() {
+        this("Casper the Unfriendly Ghost", 12, 0);
+    }
+
     public void trickOrTreat() {
         System.out.println("Boo! Trick or treat!");
-        this.numCandy += 2;
+        this.gainCandy(2);
     }
 
     public void rob(TrickOrTreater o) {
         if (o instanceof Robbable) {
-            this.numCandy += ((Robbable) o).beRobbed();
+            this.gainCandy(((Robbable) o).beRobbed());
             robberiesConducted++;
         }
     }
@@ -32,7 +36,7 @@ public class Ghost extends TrickOrTreater {
         int a = super.compareTo(other);
         if (other instanceof Ghost
             && a == 0) {
-            return Integer.compare(this.robberiesConducted,
+            a = Integer.compare(this.robberiesConducted,
                 ((Ghost) other).robberiesConducted);
         }
         return a;
