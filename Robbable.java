@@ -9,5 +9,5 @@ public interface Robbable {
      * should implement that functionality and return the amount lost.
      * @return int representing amount of candy lost
      */
-    public int beRobbed();
+    int beRobbed();
 }
